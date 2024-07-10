@@ -25,6 +25,7 @@ Route::post('/', function (Request $request) {
         'not login' => $request->user,
     ]);
 });
+Route::get('/products',[ productController::class,'products']);
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -54,6 +55,5 @@ Route::middleware('auth:api')->group(function () {
 });
 
 Route::post('/logout', LogoutController::class)->name('logout');
-Route::get('/products', productController::class,'products');
 // Route::post('/logout'.)
 ?>
