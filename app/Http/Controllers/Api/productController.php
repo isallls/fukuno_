@@ -39,4 +39,10 @@ class productController extends Controller
             'qtt' => $quantity,
         ]);
     }
+    public function producuts(){
+        $a = product::all();
+        return response()->json([
+            'data'=> $a
+        ]);
+    }
 }
