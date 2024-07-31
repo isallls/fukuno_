@@ -10,6 +10,7 @@ return Application::configure(basePath: dirname(__DIR__))
         //
         $middleware->alias([
             'isLogin' => App\Http\Middleware\isLogin::class,
+            'notLogin' => App\Http\Middleware\notLogin::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

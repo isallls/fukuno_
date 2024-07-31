@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class userController extends Controller
 {
     //
+    public function user(){
+        
+    }
     public function logout(Request $request)
     {
         $request->session()->flush();

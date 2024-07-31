@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('description');
             $table->integer('stock');
+            $table->integer('price');
             $table->string('image');
             $table->timestamps();
         });
@@ -29,10 +30,10 @@ return new class extends Migration {
                 'name' => $faker->word(),
                 'description' => $faker->sentence(),
                 'stock' => $faker->randomNumber(2, true),
+                'price' => $faker->randomNumber(5, true),
                 'image' => $faker->imageUrl(), // Ganti dengan faker untuk gambar jika diperlukan
             ]);
         }
-
 
     }
 

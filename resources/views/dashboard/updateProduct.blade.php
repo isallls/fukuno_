@@ -154,7 +154,7 @@
   }
   ```
 -->
-<form method="post" enctype="multipart/form-data" action="/item">
+<form >
   @csrf
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
@@ -166,34 +166,15 @@
           <div class="mt-2">
             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm"></span>
-              <input type="text" name="product" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
+              <input type="text" name="username" id="username" autocomplete="username" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" value="{{ $item->name }}">
             </div>
           </div>
         </div>
-        @error('product')
-        <h1>
-          {{ $message }}
-        </h1>
-        @enderror
-        @error('description')
-        <h1>
-          {{ $message }}
-        </h1>
-        @enderror
-        @error('price')
-        <h1>
-          {{ $message }}
-        </h1>
-        @enderror
-        @error('stock')
-        <h1>
-          {{ $message }}
-        </h1>
-        @enderror
+
         <div class="col-span-full">
           <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About</label>
           <div class="mt-2">
-            <textarea id="about" name="description" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+            <textarea value="lsdkflsd" id="about" name="about" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >{{ $item->description }}</textarea>
           </div>
           <p class="mt-3 text-sm leading-6 text-gray-600"></p>
         </div>
@@ -218,21 +199,9 @@
     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
       <span class="text-gray-500 sm:text-sm">RP</span>
     </div>
-    <input type="text" name="price" id="price" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
+    <input type="text" name="price" id="price" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00" value="{{ $item->price }}">
     <div class="absolute inset-y-0 right-0 flex items-center">
       <label for="currency" class="sr-only">Currency</label>
-    </div>
-  </div>
-</div>
-<div>
-  <label for="stock" class="block text-sm font-medium leading-6 text-gray-900">Stock</label>
-  <div class="relative mt-2 rounded-md shadow-sm">
-    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-      <span class="text-gray-500 sm:text-sm"></span>
-    </div>
-    <input type="number" name="stock" id="stock" class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="0.00">
-    <div class="absolute inset-y-0 right-0 flex items-center">
-      <label for="currency" class="sr-only"></label>
     </div>
   </div>
 </div>
@@ -248,7 +217,7 @@
               <div class="mt-4 flex text-sm leading-6 text-gray-600">
                 <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                   <span>Upload a file</span>
-                  <input type="file" id="file-upload" name="image"  class="sr-only">
+                  <input id="file-upload" name="file-upload" type="file" class="sr-only">
                 </label>
                 <p class="pl-1">or drag and drop</p>
               </div>
@@ -264,7 +233,6 @@
     <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
   </div>
 </form>
-
     </div>
   </main>
 </div>
